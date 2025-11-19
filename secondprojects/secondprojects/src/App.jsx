@@ -8,6 +8,9 @@ import LifecycleFunction from './LifecycleFunction'
 import Usercomponenet from './Usercomponenet'
 import PropsExample from './PropsExample'
 import EmpComponent from './EmpComponent'
+import ApiExample from './ApiExample'
+import ApiCalling from './ApiCalling'
+import ApiCrudExample from './ApiCrudExample'
 //import PropTypes from './PropTypes'
 
 function App() {
@@ -28,8 +31,11 @@ function App() {
     {/* <PropsExample /> */}
      <hr />
      {/* <PropTypes /> */}
-     <EmpComponent />
-    
+     {/* <EmpComponent /> */}
+     {/* <ApiExample /> */}
+     <hr />
+     {/* <ApiCalling /> */}
+     <ApiCrudExample />
     </>
   )
 }
