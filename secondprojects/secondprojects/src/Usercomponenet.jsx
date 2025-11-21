@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+  import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Form, Button, Table } from "react-bootstrap";
 const Usercomponent = () => {
@@ -39,13 +39,13 @@ const Usercomponent = () => {
        }
        const delData = (id)=> {
             let res = data.filter((i,index) => {
-              return index != id;
+              return index !== id;
             });
             setData(res);
        };
        let editData = (id) => {
         let res = data.find((i,index) => {
-          return index == id; 
+          return index === id; 
         });
         setName(res.name);
         setAge(res.age);

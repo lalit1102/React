@@ -1,119 +1,148 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ApiCrudExample = () => {
-  const [data, setData] = useState({ name: "", age: "", salary: "" });
-  const [alldata, setAlldata] = useState([]);
+  const [data, setData] = useState({
+    name: "",
+    age: "",
+    salary: "",
+  });
+  const [allData, setAllData] = useState([]);
   const [id, setId] = useState("");
 
-  const handlechange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setData((prev) => ({ ...prev, [name]: value }));
+    setData({
+      ...data,
+      [name]: value,
+    });
   };
 
   const saveData = (e) => {
     e.preventDefault();
-
     if (id !== "") {
       axios
-        .put(`http://localhost:3000/users/${id}`, data)
-        .then(() => {
-          console.log("updated");
-          setId("");
-          setData({ name: "", age: "", salary: "" });
-          disp();
-        })
-        .catch((err) => console.error(err));
+        .put("http://localhost:3000/users/" + id, data)
+        .then(() => console.log("Data updated Sucssesfully"));
     } else {
       axios
         .post("http://localhost:3000/users", data)
-        .then(() => {
-          console.log("Inserted");
-          setData({ name: "", age: "", salary: "" });
-          disp();
-        })
-        .catch((err) => console.error(err));
+        .then(() => console.log("data inserted"));
     }
+
+    setData({
+      name: "",
+      age: "",
+      salary: "",
+    });
   };
 
   const disp = () => {
     axios
       .get("http://localhost:3000/users")
-      .then((res) => setAlldata(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => setAllData(res.data));
   };
 
-  const editData = (itemId) => {
+  const delData = (id) => {
     axios
-      .get(`http://localhost:3000/users/${itemId}`)
-      .then((res) => {
-        setData(res.data);
-        setId(itemId);
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const delData = (itemId) => {
-    axios
-      .delete(`http://localhost:3000/users/${itemId}`)
-      .then(() => {
-        console.log("deleted");
-        disp();
-      })
-      .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
+      .delete("http://localhost:3000/users/" + id)
+      .then(() => console.log("Daata Deleted"));
     disp();
-  }, []);
+  };
 
+  const editData = (id) => {
+    axios
+      .patch("http://localhost:3000/users/" + id)
+      .then((res) => setData(res.data));
+    setId(id);
+  };
+  // useEffect(() => {
+  //   disp();
+  // }, []);
+  disp();
   return (
     <div>
       <h3>Api Crud Example</h3>
-      <form action="#" method="post" name="frm" onSubmit={saveData}>
-        <label htmlFor="">
-          Name:
-          <input type="text" name="name" id="name" value={data.name} onChange={handlechange} />
-        </label>
-        <label htmlFor="">
-          Age:
-          <input type="number" name="age" id="age" value={data.age} onChange={handlechange} />
-        </label>
-        <label htmlFor="">
-          salary:
-          <input type="number" name="salary" id="salary" value={data.salary} onChange={handlechange} />
-        </label>
-        <button type="submit" value="save">save</button>
-      </form>
-              <br />
-              <br />
-              <table>
-                <thead>
-                  <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>age</th>
-                    <th>salary</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {alldata.map((item,i) => (
-                    <tr key={item.id || i}>
-                      <td>{item.id}</td>
-                      <td>{item.name}</td>
-                      <td>{item.age}</td>
-                      <td>{item.salary}</td>
-                      <td>
-                        <button onClick={()=>editData(item.id)}>edit</button>
-                        <button onClick={()=>delData(item.id)}>delete</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          );
-        };
 
-        export default ApiCrudExample;
+      <form action="#" method="post" name="frm" onSubmit={saveData}>
+        Name :
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={data.name}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
+        Age :
+        <input
+          type="number"
+          name="age"
+          id="age"
+          value={data.age}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
+        Salary :
+        <input
+          type="number"
+          name="salary"
+          id="salary"
+          value={data.salary}
+          onChange={handleChange}
+        />
+        <br />
+        <br />
+        <button type="submit" value="save">
+          Save
+        </button>
+      </form>
+
+      <br />
+      <br />
+
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {allData.map((i, index) => {
+            return (
+              <tr>
+                <td>{index + 1}</td>
+                <td>{i.name}</td>
+                <td>{i.age}</td>
+                <td>{i.salary}</td>
+                <td>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => editData(i.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => delData(i.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default ApiCrudExample;
