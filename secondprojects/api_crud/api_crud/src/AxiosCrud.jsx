@@ -19,11 +19,30 @@ const AxiosCrud = () => {
 
   const saveData = (e) => {
       e.preventDefault()
-      setAllData({
+
+      if(id !== "") {
+
+      } else 
+
+      setAllData([   // always giving array bcz alldata array of object che
         ...allData,
         data
-      })
+      ])
+      // console.log(setAllData)
   }
+  // console.log(saveData)
+
+  const deldata = (id) => {
+  const res = allData.filter((item) => item.id !== id);
+  setAllData(res);
+};
+const editdata = (id) => {
+  const res = allData.find((item)=> item.id == id)
+  setData(res)
+  setId(id)
+}
+
+
   return (
    <>
    <h1>axios crud </h1>
@@ -37,46 +56,32 @@ const AxiosCrud = () => {
     <button type="submit">save</button>
 
    </form>
-   <table>
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>age</th>
-        <th>salary</th>
-        <th>Action</th>
+   <table style={{ border: "2px solid black", borderCollapse: "collapse" }}>
+  <thead>
+    <tr>
+      <th style={{ border: "2px solid black" }}>id</th>
+      <th style={{ border: "2px solid black" }}>name</th>
+      <th style={{ border: "2px solid black" }}>age</th>
+      <th style={{ border: "2px solid black" }}>salary</th>
+      <th style={{ border: "2px solid black" }}>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {allData.map((item, index) => (
+      <tr key={index}>
+        <td style={{ border: "2px solid black" }}>{index + 1}</td>
+        <td style={{ border: "2px solid black" }}>{item.name}</td>
+        <td style={{ border: "2px solid black" }}>{item.age}</td>
+        <td style={{ border: "2px solid black" }}>{item.salary}</td>
+        <td style={{ border: "2px solid black" }}>
+          <button style={{ border: "2px solid black", margin:"10px" }} onClick={() => editdata(item.id)}>Edit</button>
+          <button style={{ border: "2px solid black" }} onClick={() => deldata(item.id)}>Delete</button>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {
-        allData.map((item,index)=>{
-          return (
-              <tr>
-                <td>{index+1}</td>
-                <td>{item.name}</td>
-                <td>{item.age}</td>
-                <td>{item.salary}</td>
-              </tr>
-          )
-        })
-      }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    </tbody>
-   </table>
+    ))}
+  </tbody>
+</table>
+
    </>      
   )
 }
