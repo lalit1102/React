@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const Hooks = () => {
+const Simple = () => {
   const [data, setData] = useState({ name: "", age: "", salary: "" });
   const [allData, setAllData] = useState([]);
   const [id, setId] = useState("");
@@ -51,8 +51,9 @@ const Hooks = () => {
 
   return (
     <>
+
       <h2>CRUD Example with map() & console.log</h2>
-      <form onSubmit={saveData}>
+      <form onSubmit={saveData} >
         <input
           name="name"
           placeholder="Enter Name"
@@ -70,8 +71,9 @@ const Hooks = () => {
           placeholder="Enter Salary"
           value={data.salary}
           onChange={handleChange}
+          
         />
-        <button type="submit">{id !== "" ? "Update" : "Save"}</button>
+        <button type="submit" style={{color:"red"}}>{id !== "" ? "Update" : "Save"}</button>
       </form>
 
       <table border="1" style={{ marginTop: "20px", borderCollapse: "collapse" }}>
@@ -102,4 +104,4 @@ const Hooks = () => {
 };
   
 
-export default Hooks
+export default Simple
