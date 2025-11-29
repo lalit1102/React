@@ -2,7 +2,8 @@ import ApiCrudExample from './ApiCrudExample';
 import AxiosCrud from './AxiosCrud';
 import Crud from './Crud';
 import './index.css';
-import Simple from './Simple';
+import Crud1 from './Crud1'
+import Crud2 from './Crud2';
 
 
 
@@ -14,7 +15,8 @@ function App() {
      {/* <ApiCrudExample /> */}
      {/* <Crud /> */}
      {/* <AxiosCrud /> */}
-     <Simple />
+     {/* <Crud1 /> */}
+     <Crud2 />
      
      
     </>
