@@ -1,0 +1,38 @@
+/* 
+.hero-section {
+  height: 80vh;
+  background: url("../assets/img1.jpg") 
+    no-repeat center/cover;
+  position: relative;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+
+.service-box {
+  background: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.cta-banner {
+  background: #ffae00;
+}
+
+
+.room-card img {
+  height: 180px;
+  object-fit: cover;
+} */

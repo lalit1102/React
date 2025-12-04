@@ -1,0 +1,38 @@
+ /* .rainbow-animated-text {
+  background: linear-gradient(
+    90deg,
+    #FF0000,
+    #FF8C00,
+    #FFFF00,
+    #00FF00,
+    #0000FF,
+    #4B0082,
+    #EE82EE,
+    #FF0000
+  );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-move 7s linear infinite; 
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+@keyframes rainbow-move {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+
+.footer-center-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+} */

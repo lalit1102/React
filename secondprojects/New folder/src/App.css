@@ -1,0 +1,47 @@
+.App {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.main-content {
+  padding: 30px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.page-container h1 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-container p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px 15px;
+  }
+
+  .page-container {
+    padding: 25px;
+  }
+
+  .page-container h1 {
+    font-size: 2rem;
+  }
+}
+

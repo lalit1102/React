@@ -1,0 +1,38 @@
+.navcolor{
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+}
+
+
+.rainbow {
+  font-weight: bold; 
+  font-size: 1.5rem; 
+  background: linear-gradient(
+    90deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  background-size: 400% 400%;
+ -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:lalit 8s linear infinite ;
+
+}
+
+ @keyframes lalit{
+  0% {
+     background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+ }
+ 

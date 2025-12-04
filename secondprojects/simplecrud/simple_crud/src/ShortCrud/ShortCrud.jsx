@@ -1,21 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 const ShortCrud = () => {
-  const [data,setData] = useState({
-    name:"",
-    age:"",
-    salary:""
-  })
-  const [aalldata,setAlldata] = useState([])
-  const [id,setId] = useState("")
+  const [alldata,setAlldata] = useState([])
+  const [id, setId] = useState("")
+ const [data,setData] = useState({
+  name:"",
+  age:"",
+  salary:""
+ })
 
-  const handlechange = (e) => {
-    {name,age,salary} = e.target,
-    setAlldata
-  }
+ const handlechange = (e) => {
+  const {name,value} = e.target
+  console.log("New  saved:", data);
+  setData({
+    ...data,
+    [name]:value
+  })
+ }
+ const saveData = (e) => {
+  e.preventDefault()
+   console.log("New entry being saved:", data);
+  setAlldata([
+    ...alldata,data
+  ])
+  
+ }
+
+ const editData = (id) => {
+const res = alldata.find((i,index)=> index===id)
+setData(res)
+setId(id)
+ }
+ 
+ const delData = (id) => {
+  const res = alldata.filter((i,index)=>index != id)
+  setAlldata(res)
+ }
+
+ useEffect(() => {
+  console.log("alldata now:", alldata);
+  console.log("data is ", data)
+  
+}, [alldata]);
+
   return (
     <div>
-      <from action='#' method='post' name='frm' onSubmit={saveData}>
+     <form action="#" method="post" name="frm" onSubmit={saveData}>
         <label htmlFor="">name</label>
         <input type="text" name="name" id="name" placeholder='entername' value={data.name} onChange={handlechange}  />
         <br /><br />
@@ -26,7 +56,7 @@ const ShortCrud = () => {
         <input type="number" name="salary" id="salary" placeholder='enter salary' value={data.salary} onChange={handlechange}  />
         <br /><br />
         <button>save</button>
-      </from>
+    </form>
       <div>
         <table border={2}>
           <thead>
@@ -43,7 +73,7 @@ const ShortCrud = () => {
             {
               alldata.map((i,index)=> {
                 return (
-                  <tr key = {id}>
+                  <tr>
                     <td>{index+1}</td>
                     <td>{i.name}</td>
                     <td>{i.age}</td>
