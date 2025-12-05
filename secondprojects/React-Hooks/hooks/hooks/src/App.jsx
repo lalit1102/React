@@ -10,6 +10,9 @@ import VariableChange from "./HOOKS/UseState/VariableChange";
 
 import Videoplay from "./Three_hooks/Videoplay";
 import Mycomponent from "./HOOKS/UseRef/Mycomponent";
+import UseCallback from "./HOOKS/UseCallback/UseCallback";
+
+import Crud1 from "./HOOKS/UseCallback/Crud1.jsx";
 
 function App() {
   return (
@@ -24,8 +27,10 @@ function App() {
       {/* <ContextExample /> */}
       {/* <UseContextExample /> */}
       {/* <ContextExample /> */}
-
-      <Videoplay />
+      
+    <Crud1 />
+      {/* <Videoplay /> */}
+      {/* <UseCallback /> */}
     </>
   );
 }
