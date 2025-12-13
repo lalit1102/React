@@ -51,8 +51,12 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>here value is {data.name}</h1>
+      <h1>here value is---{data.name}</h1>
       <form action="#" method='post' onSubmit={saveData}>
+        <label htmlFor="">name</label>
+        <input type="text" name="name" id="name" value={data.name} placeholder='enter the name'  onChange={handleChange}/>
+        <label htmlFor="">name</label>
+        <input type="text" name="name" id="name" value={data.name} placeholder='enter the name'  onChange={handleChange}/>
         <label htmlFor="">name</label>
         <input type="text" name="name" id="name" value={data.name} placeholder='enter the name'  onChange={handleChange}/>
         <button>SAVE</button>

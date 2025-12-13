@@ -41,7 +41,7 @@ const Crud = () => {
 };  
   
   const delData = (id)=>{
-    let res = alldata.filter((i,index)=> index != id)
+    let res = alldata.filter((i,index)=> index !== id)
     setAllData(res)
   }
   const editData = (id) => {

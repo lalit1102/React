@@ -1,13 +1,11 @@
-
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
 
 const Crud2 = () => {
   const [id, setId] = useState("");
   const [alldata, setAlldata] = useState([]);
   const [data, setData] = useState({
+    id: "",
     name: "",
     age: "",
     salary: "",
@@ -24,95 +22,101 @@ const Crud2 = () => {
   const savedata = (e) => {
     e.preventDefault();
 
-    axios.post("http://localhost:3000/crud")
-    .then(()=>console.log("data inserted"))
+    if (id !== "") {
+      // UPDATE
+      axios.put(`http://localhost:3000/crud/${id}`, data).then(() => {
+        console.log("updated");
+        disp();
+        setId("");
+        setData({ id: "", name: "", age: "", salary: "" });
+      });
+    } else {
+      // INSERT
+      axios.post("http://localhost:3000/crud", data).then(() => {
+        console.log("data inserted");
+        disp();
+        setData({ id: "", name: "", age: "", salary: "" });
+      });
+    }
   };
 
-  const disp = (id) => {
-        axios.get("http://localhost:3000/crud")
-        .then((res) =>setAlldata(res.data))
-  }
+  const disp = () => {
+    axios.get("http://localhost:3000/crud").then((res) => setAlldata(res.data));
+  };
 
   const deldata = (id) => {
-      axios 
-      .delete("http://localhost:3000/crud"+id)
-      
-      .then(()=>console.log("deleted data"))
-      disp()
+    axios.delete(`http://localhost:3000/crud/${id}`).then(() => {
+      console.log("deleted");
+      disp();
+    });
   };
+
   const editdata = (id) => {
-    axios.patch("http://localhost:3000/crud/"+id)
-    .then((res)=>setData(res.data))
-    setId(id)
+    axios.get(`http://localhost:3000/crud/${id}`).then((res) => {
+      setData({
+        id: res.data.id,
+        name: res.data.name,
+        age: res.data.age,
+        salary: res.data.salary,
+      });
+
+      setId(id);
+    });
   };
-  useEffect(()=>{
-      disp()
-  },[])
+
+  useEffect(() => {
+    disp();
+  }, []);
+
   return (
     <div>
-      <form action="#" method="post" onSubmit={savedata} name="fnm">
-        <label htmlFor="">name:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={data.name}
-          onChange={handlechange}
-        />
-        <br />
-        <br />
-        <label htmlFor="">age:</label>
-        <input
-          type="number"
-          name="age"
-          id="age"
-          value={data.age}
-          onChange={handlechange}
-        />
-        <br />
-        <br />
-        <label htmlFor="">salary:</label>
-        <input
-          type="text"
-          name="salary"
-          id="salary"
-          value={data.salary}
-          onChange={handlechange}
-        />
-        <br />
-        <br />
-        <button>save</button>
+      <h1>Here print ID --- {data.id}</h1>
+      <h2>Here print Name --- {data.name}</h2>
+      <h2>Here print Age --- {data.age}</h2>
+      <h2>Here print Salary --- {data.salary}</h2>
+
+      <form onSubmit={savedata}>
+        <label>ID:</label>
+        <input type="text" value={data.id} readOnly disabled />
+
+        <label>Name:</label>
+        <input type="text" name="name" value={data.name} onChange={handlechange} />
+
+        <label>Age:</label>
+        <input type="number" name="age" value={data.age} onChange={handlechange} />
+
+        <label>Salary:</label>
+        <input type="text" name="salary" value={data.salary} onChange={handlechange} />
+
+        <button>Save</button>
       </form>
 
-      <div>
-        <table border={2}>
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>name:</th>
-              <th>age</th>
-              <th>salary</th>
-              <th>action</th>
+      <table border={2}>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {alldata.map((i) => (
+            <tr key={i.id}>
+              <td>{i.id}</td>
+              <td>{i.name}</td>
+              <td>{i.age}</td>
+              <td>{i.salary}</td>
+              <td>
+                <button onClick={() => editdata(i.id)}>Edit</button>
+                <button onClick={() => deldata(i.id)}>Delete</button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {alldata.map((i, index) => {
-              return (
-                <tr>
-                  <td>{index + 1}</td>
-                  <td>{i.name}</td>
-                  <td>{i.age}</td>
-                  <td>{i.salary}</td>
-                  <td>
-                    <button onClick={() => editdata(index)}>edit</button>
-                    <button onClick={() => deldata(index)}>delete</button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

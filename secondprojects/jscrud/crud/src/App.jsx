@@ -6,6 +6,7 @@ import Crud from './Crud'
 import Apicrud from './Apicrud'
 import UseEffect from './UseEffect'
 import UsersComponent from './UsersComponent'
+import Crud2 from './Crud2'
 
 function App() {
  
@@ -14,8 +15,9 @@ function App() {
     <>
     {/* /*<Crud /> */}
     {/* <UseEffect /> */}
-    <UsersComponent />
+    {/* <UsersComponent /> */}
     {/* <Apicrud /> */}
+    <Crud2 />
     </>
   )
 }

@@ -16,10 +16,10 @@ function App() {
     <>
       {/* <LongCrud /> */}
       {/* <Longme /> */}
-      {/* <ShortCrud /> */}
+      <ShortCrud />
       {/* <Crud1 /> */}
       {/* <Crud2 /> */}
-      <Crud3 />
+      {/* <Crud3 /> */}
     </>
   )
 }

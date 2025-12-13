@@ -1,0 +1,20 @@
+{
+  "Registers": [
+    {
+      "id": "8495",
+      "name": "Lalit Baldaniya",
+      "mobile": "8141300462",
+      "gender": "male",
+      "email": "lalit.baldaniya92@gmail.com",
+      "course": "MERN STACK DEVELOPER"
+    },
+    {
+      "id": "458c",
+      "name": "Lalit Baldaniya",
+      "mobile": "8141300462",
+      "gender": "male",
+      "email": "AA@FFF.GD",
+      "course": "FULL STACK DEVELOPER"
+    }
+  ]
+}

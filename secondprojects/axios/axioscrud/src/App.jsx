@@ -4,6 +4,7 @@ import AxoisCCrud from './AxoisCCrud'
 import './App.css'
 import Crud1 from './axios/Crud1'
 import Crud2 from './axios/Crud2'
+import Resigster from './Resigsterform/Resigster'
 
 function App() {
   
@@ -13,7 +14,8 @@ function App() {
     {/* <AxiosCrud /> */}
     {/* <AxoisCCrud /> */}
     {/* <Crud1 /> */}
-    <Crud2 />
+    {/* <Crud2 /> */}
+    <Resigster />
 
 
 

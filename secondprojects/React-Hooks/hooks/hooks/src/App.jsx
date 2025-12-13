@@ -13,6 +13,8 @@ import Mycomponent from "./HOOKS/UseRef/Mycomponent";
 import UseCallback from "./HOOKS/UseCallback/UseCallback";
 
 import Crud1 from "./HOOKS/UseCallback/Crud1.jsx";
+import Usememo1 from "./HOOKS/Usememo/Usememo1.jsx";
+import OneRf from "./HOOKS/UseRef/OneRf.jsx";
 
 function App() {
   return (
@@ -23,14 +25,16 @@ function App() {
       {/* <AppUseRef /> */}
       {/* <UseRefExample /> */}
       {/* <Firstuseref /> */}
+      {/* <OneRf /> */}
       {/* <Mycomponent /> */}
       {/* <ContextExample /> */}
       {/* <UseContextExample /> */}
       {/* <ContextExample /> */}
       
-    <Crud1 />
+    {/* <Crud1 /> */}
       {/* <Videoplay /> */}
       {/* <UseCallback /> */}
+      <Usememo1 />
     </>
   );
 }
