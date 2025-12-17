@@ -15,6 +15,8 @@ import UseCallback from "./HOOKS/UseCallback/UseCallback";
 import Crud1 from "./HOOKS/UseCallback/Crud1.jsx";
 import Usememo1 from "./HOOKS/Usememo/Usememo1.jsx";
 import OneRf from "./HOOKS/UseRef/OneRf.jsx";
+import Example1 from "./HOOKS/UseCallback/Example1.jsx";
+import MemoExample from "./HOOKS/Usememo/MemoExample.jsx";
 
 function App() {
   return (
@@ -30,11 +32,12 @@ function App() {
       {/* <ContextExample /> */}
       {/* <UseContextExample /> */}
       {/* <ContextExample /> */}
-      
+      {/* <Example1 /> */}
     {/* <Crud1 /> */}
       {/* <Videoplay /> */}
       {/* <UseCallback /> */}
-      <Usememo1 />
+      {/* <Usememo1 /> */}
+      <MemoExample />
     </>
   );
 }
