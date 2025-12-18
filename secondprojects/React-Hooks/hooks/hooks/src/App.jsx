@@ -17,6 +17,7 @@ import Usememo1 from "./HOOKS/Usememo/Usememo1.jsx";
 import OneRf from "./HOOKS/UseRef/OneRf.jsx";
 import Example1 from "./HOOKS/UseCallback/Example1.jsx";
 import MemoExample from "./HOOKS/Usememo/MemoExample.jsx";
+import Customhook from "./HOOKS/Customhooks/Customhook.jsx";
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
       {/* <Videoplay /> */}
       {/* <UseCallback /> */}
       {/* <Usememo1 /> */}
-      <MemoExample />
+      {/* <MemoExample /> */}
+      <Customhook />
     </>
   );
 }
