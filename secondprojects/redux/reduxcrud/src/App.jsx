@@ -12,8 +12,8 @@ function App() {
   return (
     <>
       {/* <UserComponent /> */}
-      {/* <LalitComponent /> */}
-      <RtkComponent />
+      <LalitComponent />
+      {/* <RtkComponent /> */}
     </>
   )
 }

@@ -22,3 +22,11 @@ export const delFunc = (id) => {
     payload: id,
   };
 };
+
+// Debug logs for Lalit actions
+try {
+  console.log("LalitAction loaded:", { ins, upd, del });
+  console.log("LalitAction creators:", { insFunc, updFunc, delFunc });
+} catch (e) {
+  // ignore if executed in non-browser environments during static analysis
+}

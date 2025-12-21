@@ -11,7 +11,7 @@ import RtkStore from './RTK/RtkStore.js'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={RtkStore}>
+    <Provider store={LalitStore}>
     <App />
     </Provider>
   </React.StrictMode>,

@@ -3,7 +3,14 @@ import {ins,upd,del} from "./LalitAction"
 const initialState = {
   data:[]
 }
+
+// Debug: initial state
+try {
+  console.log("LalitReducer initialized, initialState:", initialState);
+} catch (e) {}
   const LalitReducer = (state=initialState,action) => {
+      // Debug: log incoming actions
+      try { console.log('LalitReducer action:', action, 'stateBefore:', state); } catch(e) {}
       switch (action.type){
         case ins:return{
             ...state,
